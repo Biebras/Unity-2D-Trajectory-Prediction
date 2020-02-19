@@ -89,6 +89,12 @@ public class TrajectoryController : MonoBehaviour
     private float MaxTimeX()
     {
         var x = velocity.x;
+        if(x == 0)
+        {
+            velocity.x = 000.1f;
+            x = velocity.x;
+        }
+        
         var t = (HitPosition().x - transform.position.x) / x;
         return t;
     }
